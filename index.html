@@ -4,18 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Expense Tracker</title>
-    <!-- Goes over style sheet -->
+    <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-
     <link rel="stylesheet" href="./assets/style.css" />
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
-
-    <!-- Relative Path and Absolute Path is the reason we pit ./ -->
   </head>
   <body>
     <!-- Navbar -->
@@ -49,79 +46,95 @@
       </div>
     </nav>
 
-    <section id="intro" class="intro-section">
-      
+    <!-- Intro Section -->
+    <section class="intro-section">
       <div class="video-container">
         <video autoplay muted loop playsinline class="video-background">
-          <source src="./assets/video/backgroundet.mp4" type="video/mp4">
+          <source src="./assets/video/backgroundet.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
       </div>
-
       <div class="video-overlay pt-5">
-      <div class="container-lg mt-5 mb-5 border-bottom">
-        <div class="row g-4 justify-content-center align-items-center">
-          <div class="col-md text-center text-md-start">
-            <h1>
-              <div class="display-2 text-center">Welcome to</div>
-              <div class="display-5 text-success text-center">
-                Expense Tracker
+        <div class="container-lg mt-5 mb-5 border-bottom">
+          <div class="row g-4 justify-content-center align-items-center">
+            <div class="col-md text-center text-md-start">
+              <h1>
+                <div class="display-2 text-center">Welcome to</div>
+                <div class="display-5 text-success text-center">
+                  Expense Tracker
+                </div>
+              </h1>
+              <div class="d-flex justify-content-center mb-5">
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                >
+                  About Us
+                </button>
               </div>
-            </h1>
-            <div class="d-flex justify-content-center mb-5">
-              <button
-                type="button"
-                class="btn btn-success"
-                data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"
-              >
-                About Us
-              </button>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Modal -->
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 text-success" id="staticBackdropLabel">
+              Expense Tracker
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p class="lead my-4 text-muted">
+              Easily enter and log your expenses by category to see where your
+              money is going. Track spending patterns and gain control over your
+              finances at a glance.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-success"
+              data-bs-dismiss="modal"
+            >
+              Let's Track
+            </button>
           </div>
         </div>
       </div>
     </div>
-    </section>
 
-    <!-- Intro Section -->
-    <section id="intro">
-    
-
-              </div>
-              
-              
-              <!-- Modal -->
-              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5 text-success" id="staticBackdropLabel">Expense Tracker</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="lead my-4 text-muted">Easily enter and log your expenses by category to see where your money is going. Track spending patterns and gain control over your finances at a glance.</p>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-success" data-bs-dismiss="modal">Let's Track</button>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Parent container for our three containers -->
-
+    <!-- Main Features Section -->
     <div class="row justify-content-around flex-wrap border-bottom mb-5">
-      <!-- Container for Entering Budget Limit -->
-
+      <!-- Budget Limit Section -->
       <div
-        class="col-3 bg-light p-5 mb-5 border border-success border-2 rounded d-flex flex-column align-items-center justify-content-center"
+        class="col-md-3 bg-light p-5 mb-5 border border-success border-2 rounded d-flex flex-column align-items-center justify-content-center"
       >
         <h1 class="display-6 text-center text-success">Enter Budget Limit</h1>
         <p class="lead text-center">
@@ -129,19 +142,23 @@
         </p>
         <div class="input-group mb-3">
           <span class="input-group-text">$</span>
-          <!-- Update budget input id -->
-          <input type="text" class="form-control" id="budgetLimitInput" aria-label="Dollar amount (with dot and two decimal places)">
-          <button id="limitButton" class="btn btn-success m-3">Set Budget Limit</button>
-          </div>
-    </div>   
-            <!-- Container for Entering Expenses -->
+          <input
+            type="text"
+            class="form-control"
+            id="budgetLimitInput"
+            aria-label="Dollar amount (with dot and two decimal places)"
+          />
+          <button id="limitButton" class="btn btn-success m-3">
+            Set Budget Limit
+          </button>
+        </div>
+      </div>
 
-
+      <!-- Enter Expenses Section -->
       <div
-        class="col-3 bg-light p-5 mb-5 border border-success border-2 rounded d-flex flex-column align-items-center justify-content-center"
+        class="col-md-3 bg-light p-5 mb-5 border border-success border-2 rounded d-flex flex-column align-items-center justify-content-center"
       >
         <h1 class="display-6 text-center text-success">Enter Expenses</h1>
-
         <select
           id="categorySelect"
           class="form-select m-3"
@@ -154,7 +171,6 @@
         </select>
         <div class="input-group mb-3">
           <span class="input-group-text">$</span>
-          <!-- <span class="input-group-text">0.00</span> -->
           <input
             type="text"
             class="form-control"
@@ -162,102 +178,145 @@
             aria-label="Dollar amount (with dot and two decimal places)"
           />
         </div>
-        <button type="button " id="submitButton" class="btn btn-success btn-lg">
-          <a href="" class="text-white text-decoration-none">Click</a>
+        <button type="button" id="submitButton" class="btn btn-success btn-lg">
+          Submit
         </button>
       </div>
 
-    <!-- accordion -->
-    <h1 class="display-6 text-center text-success mb-5" id="tips">
-      Tips about Money
-    </h1>
-
-        </div>   
+      <!-- Tracker Section -->
+      <div
+        class="col-md-3 bg-light p-5 mb-5 border border-success border-2 rounded"
+        id="trackerCard"
+      >
+        <h1 class="display-6 text-center">Tracker</h1>
+        <div id="amountDisplay" class="text-center display-4 text-primary">
+          $0.00
+        </div>
+        <div id="categoryExpenses" class="text-center mt-4"></div>
       </div>
-      <!-- Container for Entering Expenses -->
+    </div>
 
-          
-    <!-- accordion -->
+    <!-- Accordion Section -->
     <h1 class="display-6 text-center text-success mb-5" id="tips">
       Tips about Money
     </h1>
 
-        <div class="accordion" id="chapters">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="heading-1" >
-              <button class="accordion-button btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#chapter-1" aria-expanded="true" aria-controls="chapter-1">
-                Tip #1: Shift from Earning to Investing Mindset:
-              </button>
-            </h2>
-            <div id="chapter-1" class="accordion-collapse collapse show" aria-labelledby="heading-1" data-bs-parent="#chapters">
-              <div class="accordion-body">
-                <img src="/assets/images/output (1).jpg" alt="">
-                <p>Earning alone won’t build wealth - investing does.
-                    Think of income as fuel, but investing is the engine. Instead of saving only, ask; “How can I make this money grow?”
-                    Example: $10,000 in a savings account might grow a few dollars per year, but invested at an 8% return, it could double in 9 years. Right?</p>
-              </div>
-            </div>
+    <div class="accordion" id="chapters">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading-1">
+          <button
+            class="accordion-button btn btn-success"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#chapter-1"
+            aria-expanded="true"
+            aria-controls="chapter-1"
+          >
+            Tip #1: Shift from Earning to Investing Mindset
+          </button>
+        </h2>
+        <div
+          id="chapter-1"
+          class="accordion-collapse collapse show"
+          aria-labelledby="heading-1"
+          data-bs-parent="#chapters"
+        >
+          <div class="accordion-body">
+            <img
+              src="/assets/images/output (1).jpg"
+              alt="Investing mindset visual"
+              class="img-fluid"
+            />
+            <p>
+              Earning alone won't build wealth - investing does. Think of income
+              as fuel, but investing is the engine. Instead of saving only, ask:
+              "How can I make this money grow?" Example: $10,000 in a savings
+              account might grow a few dollars per year, but invested at an 8%
+              return, it could double in 9 years.
+            </p>
           </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="heading-2">
-              <button class="accordion-button collapsed btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#chapter-2" aria-expanded="false" aria-controls="chapter-2">
-                Tip #2: Take a Risk:
-              </button>
-            </h2>
-            <div id="chapter-2" class="accordion-collapse collapse" aria-labelledby="heading-2" data-bs-parent="#chapters">
-              <div class="accordion-body">
-                <img src="/assets/images/image4.jpeg" alt="">
-                <p>The wealthy understand that every investment carries some risk. Instead of avoiding it, they manage it.
-                    Like in Rich Dad, Poor Dad, where it’s explained: “The biggest risk is not taking any risk.”
-                    Try this: Set aside a small amount monthly to invest, even if it feels uncertain - it’s your practice in managing risk.</p>
-              </div>
-            </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading-2">
+          <button
+            class="accordion-button collapsed btn btn-success"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#chapter-2"
+            aria-expanded="false"
+            aria-controls="chapter-2"
+          >
+            Tip #2: Take a Risk
+          </button>
+        </h2>
+        <div
+          id="chapter-2"
+          class="accordion-collapse collapse"
+          aria-labelledby="heading-2"
+          data-bs-parent="#chapters"
+        >
+          <div class="accordion-body">
+            <img
+              src="/assets/images/image4.jpeg"
+              alt="Risk-taking visual"
+              class="img-fluid"
+            />
+            <p>
+              The wealthy understand that every investment carries some risk.
+              Instead of avoiding it, they manage it. As explained in Rich Dad,
+              Poor Dad: "The biggest risk is not taking any risk." Try setting
+              aside a small amount monthly to invest, even if it feels
+              uncertain. Practice managing risk.
+            </p>
           </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="heading-3">
-              <button class="accordion-button collapsed btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#chapter-3" aria-expanded="false" aria-controls="chapter-1">
-                Tip #3: Think in Assets, Not Dollars:
-              </button>
-            </h2>
-            <div id="chapter-3" class="accordion-collapse collapse" aria-labelledby="heading-3" data-bs-parent="#chapters">
-              <div class="accordion-body">
-                <img src="/assets/images/output.jpg" alt="">
-                <p>What if you stopped seeing wealth as money and saw it as assets instead?
-                    Assets generate income without your direct effort. Real estate, stocks, and businesses keep the wealthy, wealthy.
-                    Tip: Next time you want to buy something, ask, “Is this going to cost me or pay me back?”</p>
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="heading-4">
-              <button class="accordion-button collapsed btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#chapter-4" aria-expanded="false" aria-controls="chapter-4">
-                Tip #4: Pay Yourself First:
-              </button>
-            </h2>
-            <div id="chapter-4" class="accordion-collapse collapse" aria-labelledby="heading-4" data-bs-parent="#chapters">
-              <div class="accordion-body">
-                <img src="/assets/images/output (2).jpg" alt="">
-                <p>Wealth isn’t built by spending first and saving last. The wealthy prioritize themselves by investing before anything else.
-                    Here’s a formula to follow: Take 20% of your income and direct it toward investments. Right off the top – no excuses.
-                    Example: If you earn $5,000, invest $1,000 before you do anything else. Watch it grow.</p>
-              </div>
-            </div>
-
-
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading-3">
+          <button
+            class="accordion-button collapsed btn btn-success"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#chapter-3"
+            aria-expanded="false"
+            aria-controls="chapter-3"
+          >
+            Tip #3: Think in Assets, Not Dollars
+          </button>
+        </h2>
+        <div
+          id="chapter-3"
+          class="accordion-collapse collapse"
+          aria-labelledby="heading-3"
+          data-bs-parent="#chapters"
+        >
+          <div class="accordion-body">
+            <img
+              src="/assets/images/output.jpg"
+              alt="Assets vs. dollars visual"
+              class="img-fluid"
+            />
+            <p>
+              What if you stopped seeing wealth as money and saw it as assets
+              instead? Assets generate income without direct effort. Real
+              estate, stocks, and businesses are key. Before making purchases,
+              ask: "Is this going to cost me or pay me back?"
+            </p>
           </div>
         </div>
       </div>
       <div class="accordion-item">
         <h2 class="accordion-header" id="heading-4">
           <button
-            class="accordion-button collapsed"
+            class="accordion-button collapsed btn btn-success"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#chapter-4"
             aria-expanded="false"
             aria-controls="chapter-4"
           >
-            Tip #4: Pay Yourself First:
+            Tip #4: Pay Yourself First
           </button>
         </h2>
         <div
@@ -267,63 +326,41 @@
           data-bs-parent="#chapters"
         >
           <div class="accordion-body">
-            <img src="/assets/images/output (2).jpg" alt="" />
+            <img
+              src="/assets/images/output (2).jpg"
+              alt="Pay yourself first visual"
+              class="img-fluid"
+            />
             <p>
-              Wealth isn’t built by spending first and saving last. The wealthy
-              prioritize themselves by investing before anything else. Here’s a
-              formula to follow: Take 20% of your income and direct it toward
-              investments. Right off the top – no excuses. Example: If you earn
-              $5,000, invest $1,000 before you do anything else. Watch it grow.
+              Wealth isn't built by spending first and saving last. Prioritize
+              yourself by investing before anything else. Formula: Take 20% of
+              your income and direct it toward investments. Example: If you earn
+              $5,000, invest $1,000 before doing anything else. Watch it grow!
             </p>
           </div>
         </div>
       </div>
     </div>
 
-      
- 
+    <!-- Contact Us Section -->
+    <h2 class="fs-1 p-5 mt-5 text-center text-success" id="contact">
+      Contact Us
+    </h2>
+    <div class="w-100 bg-light p-5 mb-5">
+      <p><strong>Email:</strong> expensetracker890@gmail.com</p>
+      <p><strong>Number:</strong> 839-863-3244</p>
+      <p><strong>Business Hours:</strong> Mon - Fri: 9:00 AM - 6:00 PM (EST)</p>
+      <a href="#top" class="btn btn-success btn-lg text-white"
+        >Return to the top</a
+      >
+    </div>
 
-      
-    
-       
-
-
-      
- 
-
-      
-    
-       
-
-
-      
- 
-
-      
-    
-       
-
-
-           <!-- Contact Us Section -->
-           <h2 id="contact" class="fs-1 p-5 mt-5 text-center text-success" id="contact">Contact Us</h2>
-
-           <div class="w-100 bg-light p-5 mb-5">
-               <p> <strong>Email:</strong> expensetracker890@gmail.com</p>
-               <p> <strong>Number:</strong>  839-863-3244</p>
-               <p> <strong>Business Hours:</strong> Mon - Fri: 9:00 AM - 6:00 PM (EST)</p>
-               <button type="button" class="btn btn-success btn-lg"><a href="" class="text-white text-decoration-none">Return to the top</a></button>
-           </div>     
-    
-   
-
-
+    <!-- Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-
     <script src="./assets/script.js"></script>
-
   </body>
 </html>
