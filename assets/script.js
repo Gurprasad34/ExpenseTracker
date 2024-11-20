@@ -8,7 +8,7 @@ const budgetLimitInput = document.getElementById("budgetLimitInput"); // Correct
 
 let budgetLimit = 0;  // Track the budget limit
 let totalExpenses = 0;  // Track total expenses
-let categoryExpenses = [];  // Track all expenses
+let categoryExpenses = JSON.parse(localStorage.getItem("categoryExpenses")) || {}; // Load category expenses
 
 // Initialize display on page load
     function initializeDisplay() {
